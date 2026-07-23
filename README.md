@@ -1,25 +1,52 @@
 # Git Branching Concepts
 
-A comprehensive guide and demo repository for learning Git branching concepts.
+A comprehensive guide and demo repository for learning all Git branching concepts.
 
 ## What's Included
 
 ### Documentation
-- **[BRANCHING_CONCEPTS.md](BRANCHING_CONCEPTS.md)** - Complete guide covering 17 branching concepts
+- **[BRANCHING_CONCEPTS.md](BRANCHING_CONCEPTS.md)** - Complete guide covering 30 branching concepts
 - **[BRANCHING_STRATEGIES.md](BRANCHING_STRATEGIES.md)** - Popular branching strategies
 
 ### Key Concepts Covered
+
+#### Basic Concepts
 | Concept | Description |
 |---------|-------------|
 | Creating Branches | `git branch`, `git checkout -b` |
 | Switching Branches | `git checkout`, `git switch` |
-| Merging | Fast-forward & 3-way merge |
+| Viewing Branches | `git branch`, `git branch -a` |
+| Branch Naming Conventions | Best practices for naming |
+| Merging | Fast-forward, 3-way, squash, octopus |
 | Merge Conflicts | How to resolve conflicts |
-| Cherry-Pick | Apply specific commits |
-| Rebase | Reapply commits on new base |
-| Stashing | Temporarily save changes |
 | Deleting Branches | Safe and force delete |
 | Renaming Branches | `git branch -m` |
+
+#### Intermediate Concepts
+| Concept | Description |
+|---------|-------------|
+| Cherry-Pick | Apply specific commits |
+| Rebase | Reapply commits on new base |
+| Interactive Rebase | Edit, squash, reorder commits |
+| Stashing | Temporarily save changes |
+| Detached HEAD | HEAD points to commit |
+| Orphan Branches | Branches with no parent |
+
+#### Advanced Concepts
+| Concept | Description |
+|---------|-------------|
+| Git Reset | Soft, mixed, hard reset |
+| Git Revert | Create undo commits |
+| Git Bisect | Find bugs with binary search |
+| Git Worktrees | Work on multiple branches |
+| Git Reflog | Recover lost commits |
+| Sparse Checkout | Partial repository checkout |
+| Tags vs Branches | Fixed vs movable pointers |
+| Branch Protection Rules | GitHub/GitLab settings |
+
+#### Remote & Tracking
+| Concept | Description |
+|---------|-------------|
 | Remote Branches | Push, pull, fetch |
 | Tracking Branches | Link local to remote |
 | Branch Comparison | `git diff`, `git log` |
@@ -52,6 +79,50 @@ git branch -d feature-test
 - `cherry-pick-file1.txt` - Cherry-pick demo
 - `rebase-demo.txt` - Rebase demo
 - `stash-demo.txt` - Stash demo
+
+## All Git Commands Reference
+
+```bash
+# Branch Operations
+git branch <name>              # Create branch
+git checkout -b <name>         # Create and switch
+git switch -c <name>           # Create and switch (new)
+git switch <name>              # Switch branch
+git branch -m <old> <new>      # Rename branch
+git branch -d <name>           # Delete merged branch
+git branch -D <name>           # Force delete branch
+
+# Merge Operations
+git merge <branch>             # Merge branch
+git merge --squash <branch>    # Squash merge
+git merge --no-ff <branch>     # Force merge commit
+
+# Commit Operations
+git cherry-pick <commit>       # Apply specific commit
+git revert <commit>            # Create undo commit
+git reset --soft HEAD~1        # Soft reset
+git reset --hard HEAD~1        # Hard reset
+
+# Rebase Operations
+git rebase <branch>            # Rebase onto branch
+git rebase -i HEAD~3           # Interactive rebase
+
+# Stash Operations
+git stash                      # Stash changes
+git stash pop                  # Apply and remove stash
+git stash list                 # List all stashes
+
+# Remote Operations
+git push -u origin <branch>    # Push with tracking
+git fetch --prune              # Prune remote branches
+git pull --rebase origin main  # Pull with rebase
+
+# Advanced Operations
+git bisect start               # Start binary search
+git worktree add <path> <branch>  # Create worktree
+git reflog                     # View reflog
+git log --graph --all          # Visual branch history
+```
 
 ## License
 Free to use for learning purposes.
